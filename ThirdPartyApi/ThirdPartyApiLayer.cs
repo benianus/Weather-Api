@@ -12,30 +12,20 @@ namespace ThirdPartyApi;
 
 public class ThirdPartyApiLayer
 {
-    HttpClient _httpClient = new HttpClient();
-    string baseUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-    public ThirdPartyApiLayer()
+    private readonly HttpClient _httpClient;
+    private readonly string? baseUrl;
+    private readonly IConfiguration configuration;
+    private readonly string? apiKey;
+
+    public ThirdPartyApiLayer(IConfiguration Configuration, HttpClient httpClient)
     {
+        configuration = Configuration;
+        baseUrl = configuration["BaseUrl"];
+        apiKey = configuration["ApiKey"];
+        _httpClient = httpClient;
         _httpClient.BaseAddress = new Uri(baseUrl);
-
     }
-    public string QueryBuilder(string location)
-    {
-        var builder = new UriBuilder(baseUrl);
-        var query = HttpUtility.ParseQueryString(builder.Query);
-        var finalQuery = string.Empty;
-
-        query["unitGroup"] = "us";
-        query["key"] = "W38JCLTCKR6FQYVLU9TX4SY2K";
-        query["contentType"] = "json";
-
-        builder.Query = query.ToString();
-
-        finalQuery = builder.ToString();
-
-        return finalQuery;
-    }
-    public async Task<Weather?> GetTodayTemperatureByLocationJson(string? location, string? apiKey)
+    public async Task<Weather?> GetTodayTemperatureByLocationJson(string? location)
     {
         // build the query
         string query = $"{location}/{DateTime.Now.ToString("yyyy-MM-dd")}?unitGroup=us&include=days&key={apiKey}&contentType=json";

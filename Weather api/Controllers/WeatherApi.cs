@@ -12,14 +12,10 @@ namespace Weather_API.Controllers
     {
         // get data from appsettings.json usin IConfiguration interface
         // Inject the interface to the Weather api class
-        private readonly IConfiguration configuration;
         private ThirdPartyApiLayer ThirdPartyApi { get; set; }
-        private readonly string? apiKey;
-        public WeatherApi(IConfiguration Configuration)
+        public WeatherApi(ThirdPartyApiLayer thirdPartyApiLayer)
         {
-            ThirdPartyApi = new ThirdPartyApiLayer();
-            configuration = Configuration;
-            apiKey = configuration["ApiKey"];
+            ThirdPartyApi = thirdPartyApiLayer;
         }
 
         [HttpGet("Json/{location}", Name = "GetTodayTempertaureJson")]
@@ -29,7 +25,7 @@ namespace Weather_API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Weather>> GetTodayTemperatureJson(string location)
         {
-            var weatherData = await ThirdPartyApi.GetTodayTemperatureByLocationJson(location, apiKey);
+            var weatherData = await ThirdPartyApi.GetTodayTemperatureByLocationJson(location);
 
             if (weatherData == null)
             {
