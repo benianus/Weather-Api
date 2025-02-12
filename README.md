@@ -2,18 +2,22 @@
 <article>
   <p>In this project, instead of relying on our own weather data, we will build a weather API that fetches and returns weather data from a 3rd party API.</p>
 </article>
-<figure>
-  <img src="https://assets.roadmap.sh/guest/weather-api-f8i1q.png">
-  <figcaption>Project Architecture</figcaption>
-</figure>
+<section>
+  <figure>
+    <figcaption>Project Architecture</figcaption>
+    <img src="https://assets.roadmap.sh/guest/weather-api-f8i1q.png">
+  </figure>
+</section>
 <div>
-  <ul>
-    <strong>Note:</strong>
-    <li>Weather Api Layer</li>
-    <li>3<sup>rd</sup> Party Api Layer</li>
-    <li>Ui Layer is Optional</li>
-    <li>Redis Caching Layer will be addes Soon</li>
-  </ul>
+  <div><p><strong>Note:</strong></p></div>
+  <div>
+    <ul>
+      <li>Weather Api Layer</li>
+      <li>3<sup>rd</sup> Party Api Layer</li>
+      <li>Ui Layer is Optional</li>
+      <li>Redis Caching Layer will be addes Soon</li>
+    </ul>
+  </div>
 </div>
 <h2>Api resource used in this Project:</h2>
 <div>
