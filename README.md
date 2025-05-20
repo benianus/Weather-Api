@@ -15,7 +15,7 @@
       <li>Weather Api Layer</li>
       <li>3<sup>rd</sup> Party Api Layer</li>
       <li>Ui Layer is Optional</li>
-      <li>Redis Caching Layer will be addes Soon</li>
+      <li>Memory Caching</li>
     </ul>
   </div>
 </div>
