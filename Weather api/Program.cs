@@ -12,6 +12,10 @@ builder.Services.AddTransient<ThirdPartyApiLayer>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// Local memory cache
+builder.Services.AddMemoryCache();
+// distributed cache
+//builder.Services.AddDistributedMemoryCache();
 
 var app = builder.Build();
 
