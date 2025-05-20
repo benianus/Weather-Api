@@ -16,6 +16,7 @@
       <li>3<sup>rd</sup> Party Api Layer</li>
       <li>Ui Layer is Optional</li>
       <li>Memory Caching</li>
+      <li>Redis caching maybe added soon</li>
     </ul>
   </div>
 </div>
